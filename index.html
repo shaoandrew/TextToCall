@@ -2,20 +2,23 @@
 <html>
 <head>
 	<title>Text to Call</title>
-	<link rel="stylesheet" type="text/css" href="/static/main.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
+	<div class="container">
+    <div class="row">
 	<div id="master">
-		<h1>Text to Call</h1>
+		<div class="col-md-3"></div>
+        <div class="col-md-6">
+		<h1 align = "center">Text to Call</h1>
 		<h2>Insult your friends instantly!</h2>
+		<br/>
 		<hr>
-		<h3>Enter the phone number you want to send the message to. </h3>
-		<form action="____" method="POST">
+			<form action = "/message" method = "POST">
+			<h3>Enter the phone number you want to send the message to. </h3>
 			Phone number: <input name="phone number" type="text" placeholder="Example: (000) 555-1111"required /><br />
-		</form>
 			<h3> Enter the message you want to send </h3>
-			<form action = "__" method = "POST">
-				<textarea name = "message" placeholder = "Enter your message here:" rows = "10" cols = "60" ></textarea>
+				<textarea name = "message" placeholder = "Enter your message here:" rows = "10" cols = "60" required></textarea>
 				<input type = "submit">
 			</form>
 
