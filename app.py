@@ -16,6 +16,14 @@ def speak():
 
     return Response(str(response), mimetype='text/xml')
 
+def insultreq():
+    requestUrl = 'http://quandyfactory.com/insult/json'
+    page = urllib.urlopen(requestUrl)
+	contents = page.read()
+	insult = json.loads(contents)
+	return insult['insult']
+
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
