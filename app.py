@@ -16,8 +16,8 @@ def call():
     num = request.form['number']
     msg = request.form['message']
     messages[num] = msg
-    auth_id = ""
-    auth_token = ""
+    auth_id = "MAOGJLZMVMNGVMYTBLZG"
+    auth_token = "ZDgwNDg5YzE3MDcyOTg5MjEzN2YyOWE2MzQ3MDI3"
     p = plivo.RestAPI(auth_id, auth_token)
     params = {
         'from': '14157232470',
@@ -32,7 +32,7 @@ def call():
 def speak(num):
     # Enter the message you want to play
     text = messages[num]
-    parameters = {'loop': 1, 'language': "en-US", 'voice': "WOMAN"}
+    parameters = {'loop': 0, 'language': "en-US", 'voice': "WOMAN"}
 
     response = plivoxml.Response()
     response.addSpeak(text, **parameters)
@@ -49,4 +49,4 @@ def insultreq():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True) 
+    app.run(host='0.0.0.0', port=port, debug=False) 
