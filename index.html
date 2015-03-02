@@ -5,21 +5,21 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 </head>
 <body>
-	<div class="container">
-    <div class="row">
 	<div id="master">
 		<div class="col-md-3"></div>
         <div class="col-md-6">
+        <div style="text-align:center;">
 		<h1 align = "center">Text to Call</h1>
 		<h2>Insult your friends instantly!</h2>
 		<br/>
 		<hr>
 			<form action = "/message" method = "POST">
-			<h3>Enter the phone number you want to send the message to. </h3>
-			Phone number: <input name="phone number" type="text" placeholder="Example: (000) 555-1111"required /><br />
-			<h3> Enter the message you want to send </h3>
-				<textarea name = "message" placeholder = "Enter your message here:" rows = "10" cols = "60" required></textarea>
-				<input type = "submit">
+				<h3>Enter the phone number you want to send the message to. </h3>
+				Phone number: <input name="phone number" type="text" placeholder="Ex: 1 (000) 555-1111" required autofocus/><br />
+				<h3> Enter the message you want to send </h3>
+					<textarea name = "message" placeholder = "Enter your message here:" rows = "10" cols = "60" required></textarea>
+				<br/>
+					<button class="btn btn-default">Send your Message!</button>
 			</form>
 
 		<h4> Stuck? Click this button to get a random insult! </h4>
