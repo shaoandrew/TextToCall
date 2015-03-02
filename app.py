@@ -7,6 +7,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def index():
+    return insultreq()
     return send_from_directory('static', 'index.html')
 
 @app.route('/call', methods=['POST'])
@@ -38,9 +39,9 @@ def speak():
 
 def insultreq():
     requestUrl = 'http://quandyfactory.com/insult/json'
-    page = urllib.urlopen(requestUrl)
+    page = urllib.request.urlopen(requestUrl)
     contents = page.read()
-    insult = json.loads(contents)
+    insult = json.loads(contents.decode())
     return insult['insult']
 
 
