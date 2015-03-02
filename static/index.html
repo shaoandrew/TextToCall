@@ -13,9 +13,9 @@
 		<h2>Insult your friends instantly!</h2>
 		<br/>
 		<hr>
-			<form action = "/message" method = "POST">
-				<h3>Enter the phone number you want to send the message to. </h3>
-				Phone number: <input name="phone number" type="text" placeholder="Ex: 1 (000) 555-1111" required autofocus/><br />
+			<form action = "/call" method = "POST">
+				<h3>Enter a phone number: </h3>
+				Phone number: <input name="number" type="text" placeholder="Ex: 1 (000) 555-1111" required autofocus/><br />
 				<h3> Enter the message you want to send </h3>
 					<textarea name = "message" placeholder = "Enter your message here:" rows = "10" cols = "60" required></textarea>
 				<br/>
@@ -23,10 +23,10 @@
 			</form>
 
 		<h4> Stuck? Click this button to get a random insult! </h4>
-		<button type = "button">Generate an insult!</button>
+		<button class="btn btn-default">Generate an insult!</button>
 
 		<div>
-			<p align="center">Won Park, Andrew Shao, Won Park</p>
+			<p align="center">Won Park, Andrew Shao, and Allan Zhou. Hackjam Spring 2015.</p>
 		</div>
 	</div>
 </body>
