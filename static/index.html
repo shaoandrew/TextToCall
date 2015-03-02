@@ -3,31 +3,39 @@
 <head>
 	<title>Text to Call</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<div id="master">
-		<div class="col-md-3"></div>
-        <div class="col-md-6">
-        <div style="text-align:center;">
-		<h1 align = "center">Text to Call</h1>
-		<h2>Insult your friends instantly!</h2>
-		<br/>
-		<hr>
-			<form action = "/call" method = "POST">
-				<h3>Enter a phone number: </h3>
-				Phone number: <input name="number" type="text" placeholder="Ex: 1 (000) 555-1111" required autofocus/><br />
-				<h3> Enter the message you want to send </h3>
-					<textarea name = "message" placeholder = "Enter your message here:" rows = "10" cols = "60" required></textarea>
-				<br/>
-					<button class="btn btn-default">Send your Message!</button>
-			</form>
-
-		<h4> Stuck? Click this button to get a random insult! </h4>
-		<button class="btn btn-default">Generate an insult!</button>
-
-		<div>
-			<p align="center">Won Park, Andrew Shao, and Allan Zhou. Hackjam Spring 2015.</p>
-		</div>
-	</div>
+    <div class="outer">
+    <div class="container centered-div">
+        <div class="row">
+            <h1 class="text-center">Text to Call</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 text-center">
+                <form class="form" action = "/call" method = "POST">
+                    <label for="number">Phone Number</label>
+                    <input class="form-control" id="number" name="number" type="text" placeholder="Ex: 1 (000) 555-1111" required autofocus/>
+                    <br />
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message" name="message" placeholder="Enter your message here:" rows ="10" required>
+                    </textarea>
+                    <br/>
+                    <button class="btn btn-primary">Send your Message!</button>
+                </form>
+                <br />
+                <button class="btn btn-default">Generate an insult!</button>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <br />
+                <p class="text-center">Won Park, Andrew Shao, and Allan Zhou. Hackjam Spring 2015.</p>
+            </div>
+        </div>
+    </div>
+    </div>
 </body>
 </html>
