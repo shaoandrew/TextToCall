@@ -1,0 +1,29 @@
+body { 
+    background: url(footer_lodyas.png);
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+}
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.centered-div {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.outer {
+    height: 100vh;
+}
