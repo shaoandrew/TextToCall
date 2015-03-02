@@ -4,8 +4,8 @@ import plivoxml, plivo
 
 app = Flask(__name__)
 
-@app.route('/')
-def index():
+@app.route('/call')
+def call():
     auth_id = ""
     auth_token = ""
     p = plivo.RestAPI(auth_id, auth_token)
