@@ -39,14 +39,14 @@ def speak(num):
 
     return Response(str(response), mimetype='text/xml')
 
-@app.route('/insult', methods=['POST'])
+@app.route('/insult')
 def insultreq():
     requestUrl = 'http://quandyfactory.com/insult/json'
-    page = urllib.request.urlopen(requestUrl)
+    page = urllib.urlopen(requestUrl)
     contents = page.read()
     insult = json.loads(contents.decode())
     return insult['insult']
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False) 
+    app.run(host='0.0.0.0', port=port, debug=True) 
