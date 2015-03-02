@@ -1,20 +1,22 @@
 import os, requests, json
 from flask import Flask, Response, request, url_for
-import plivoxml
+import plivoxml, plivo
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    auth_id = 'MAOGJLZMVMNGVMYTBLZG'
-    base = 'https://api.plivo.com/v1/Account/'+auth_id+'/Call/'
-    payload = {
+    auth_id = ""
+    auth_token = ""
+    p = plivo.RestAPI(auth_id, auth_token)
+    params = {
         'from': '14157232470',
-        'to':'14084388066',
+        'to':'19169903451',
         'answer_url':'http://pacific-stream-4609.herokuapp.com/response/speak/',
         'answer_method': 'GET'
     }
-    requests.post(base, payload)
+    r = p.make_call(params)
+    return str(r)
 
 @app.route('/response/speak/', methods=['GET'])
 def speak():
