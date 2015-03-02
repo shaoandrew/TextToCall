@@ -1,5 +1,5 @@
 import os, requests, json
-from flask import Flask, Response, request, url_for, send_from_directory
+from flask import Flask, Response, request, url_for, send_from_directory, redirect, render_template
 import plivoxml, plivo
 import urllib
 
@@ -26,7 +26,7 @@ def call():
         'answer_method': 'POST'
     }
     r = p.make_call(params)
-    return (msg + ' has been sent to ' + num)
+    return render_template('complete.html', number=num)
 
 @app.route('/response/speak/<num>', methods=['POST'])
 def speak(num):
@@ -48,4 +48,4 @@ def insultreq():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    app.run(host='0.0.0.0', port=port, debug=False)
