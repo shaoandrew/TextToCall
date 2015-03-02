@@ -34,6 +34,7 @@ def speak(num):
     text = messages[num]
     parameters = {'loop': 1, 'language': "en-US", 'voice': "WOMAN"}
 
+
     response = plivoxml.Response()
     response.addSpeak(text, **parameters)
 
@@ -48,4 +49,4 @@ def insultreq():
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(host='0.0.0.0', port=port, debug=False) 
