@@ -11,8 +11,9 @@ messages = {}
 def index():
     return send_from_directory('static', 'index.html')
 
-@app.route('/call', methods=['POST'])
-def call():
+
+@app.route('/text', methods=['POST'])
+def text():
     num = request.form['number']
     msg = request.form['message']
     messages[num] = msg
@@ -22,6 +23,24 @@ def call():
     params = {
         'from': '14157232470',
         'to': num,
+        'text': messages[num],
+        'type' : "sms"
+    }
+    r = p.send_message(params)
+    return render_template('complete.html', number=num)
+
+
+@app.route('/call', methods=['POST'])
+def call():
+    num = request.form['number']
+    msg = request.form['message']
+    messages[num] = msg
+    auth_id = ""
+    auth_token = ""
+    p = plivo.RestAPI(auth_id, auth_token)
+    params = {
+        'src': '14157232470',
+        'dst': num,
         'answer_url':'http://pacific-stream-4609.herokuapp.com/response/speak/' + num,
         'answer_method': 'POST'
     }
