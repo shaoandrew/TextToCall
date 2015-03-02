@@ -1,6 +1,7 @@
 import os, requests, json
 from flask import Flask, Response, request, url_for, send_from_directory
 import plivoxml, plivo
+import urllib
 
 app = Flask(__name__, static_url_path='')
 
@@ -35,12 +36,12 @@ def speak():
 
     return Response(str(response), mimetype='text/xml')
 
-#def insultreq():
-#    requestUrl = 'http://quandyfactory.com/insult/json'
-#    page = urllib.urlopen(requestUrl)
-#	contents = page.read()
-#	insult = json.loads(contents)
-#	return insult['insult']
+def insultreq():
+    requestUrl = 'http://quandyfactory.com/insult/json'
+    page = urllib.urlopen(requestUrl)
+    contents = page.read()
+    insult = json.loads(contents)
+    return insult['insult']
 
 
 
