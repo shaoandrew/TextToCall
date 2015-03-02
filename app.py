@@ -34,12 +34,12 @@ def speak(num):
     text = messages[num]
     parameters = {'loop': 1, 'language': "en-US", 'voice': "WOMAN"}
 
-
     response = plivoxml.Response()
     response.addSpeak(text, **parameters)
 
     return Response(str(response), mimetype='text/xml')
 
+@app.route('/insult', methods=['POST'])
 def insultreq():
     requestUrl = 'http://quandyfactory.com/insult/json'
     page = urllib.request.urlopen(requestUrl)
