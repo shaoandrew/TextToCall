@@ -14,27 +14,33 @@ def index():
 @app.route('/call', methods=['POST'])
 def call():
     num = request.form['number']
+    num = '1' + num
     msg = request.form['message']
-    messages[num] = msg
-    auth_id = "MAOGJLZMVMNGVMYTBLZG"
-    auth_token = "ZDgwNDg5YzE3MDcyOTg5MjEzN2YyOWE2MzQ3MDI3"
-    p = plivo.RestAPI(auth_id, auth_token)
-    params = {
-        'from': '14157232470',
-        'to': num,
-        'answer_url':'http://pacific-stream-4609.herokuapp.com/response/speak/' + num,
-        'answer_method': 'POST'
-    }
-    r = p.make_call(params)
-    return render_template('complete.html', number=num)
+    if len(num) != 11:
+        return redirect(url_for('index'))
+    else:
+        messages[num] = msg
+        auth_id = ""
+        auth_token = ""
+        p = plivo.RestAPI(auth_id, auth_token)
+        params = {
+            'from': '14157232470',
+            'to': num,
+            'answer_url':'http://pacific-stream-4609.herokuapp.com/response/speak/' + num,
+            'answer_method': 'POST'
+        }
+        r = p.make_call(params)
+        return render_template('complete.html', number=num)
 
 @app.route('/response/speak/<num>', methods=['POST'])
 def speak(num):
     # Enter the message you want to play
     text = messages[num]
-    parameters = {'loop': 0, 'language': "en-US", 'voice': "WOMAN"}
+    parameters = {'loop': 1, 'language': "en-US", 'voice': "WOMAN"}
+    waitLength = 2
 
     response = plivoxml.Response()
+    response.addWait(length = waitLength)
     response.addSpeak(text, **parameters)
 
     return Response(str(response), mimetype='text/xml')

@@ -1,4 +1,5 @@
 var textBox = $('textarea');
+//deprecated, need to change to async sometime
 $.ajaxSetup({async: false});
 var submit = function(){
 	event.preventDefault();
